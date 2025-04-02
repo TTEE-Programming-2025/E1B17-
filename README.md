@@ -1,9 +1,1 @@
 # E1B17
-# E1B17
-# E1B17
-# E1B17
-# E1B17
-# E1B17Kuan-kai
-# E1B17
-# E1B17
-# E1B17

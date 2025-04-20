@@ -2,21 +2,30 @@
 #include<stdlib.h>
 int main(void){
 	int i,j,a,b=0,g,h,k;
-	char c,e,space,ch,d;
+	char c,e,space,ch,d,l;
 	
-	for(i=1;i<=9;i++){
-		for(j=1;j<=i;j++){
-		printf("%d",j);	
-		}
-		printf("\n");
-	}
-	printf("§Ú¬OE1B17 ×פ«a³Í\n");
-	for(i=1;i-1<=9;i++){
-		for(j=9;j>=i;j--){
-		printf("%d",j);	
-		}
-		printf("\n");
-	}
+	printf("שÝששששששששששששששששששששששששששששששששששששששששששששששששששששששששששששששששששששששששששששששששששששששששששששששששששששששששש‗\n");
+	printf("שר                                                    שר\n");
+	printf("שר    ¢i¢i¢i¢i¢i ¢i¢i¢i¢i¢i ¢i¢i¢i¢i¢i ¢i¢i¢i¢i¢i                         שר\n");
+    printf("שר        ¢i ¢i   ¢i     ¢i ¢i                             שר\n");
+    printf("שר    ¢i¢i¢i¢i¢i ¢i   ¢i ¢i¢i¢i¢i¢i ¢i¢i¢i¢i¢i                         שר\n");
+    printf("שר    ¢i     ¢i   ¢i ¢i         ¢i                         שר\n");
+    printf("שר    ¢i¢i¢i¢i¢i ¢i¢i¢i¢i¢i ¢i¢i¢i¢i¢i ¢i¢i¢i¢i¢i                         שר\n");
+	printf("שר                                                    שר\n");
+	printf("שר                                                    שר\n");
+	printf("שר       Åw×ן¨Ó¨לE1B17×÷µ{¦¡³]­p                      שר\n");
+	printf("שר                               -µ{¦¡§@·~2           שר\n");
+	printf("שר                                                    שר\n");
+	printf("שר              ½s¼g×Ì:×פ«a³Í                         שר\n");
+	printf("שר                                                    שר\n");
+	printf("שר                                                    שר\n");
+	printf("שר                                                    שר\n");
+	printf("שר                                                    שר\n");
+	printf("שר                             «צ¤U¥פ·NÁה¶}©l¨Ï¥Î ....שר\n");
+	printf("שר                                                    שר\n");
+	printf("שדשששששששששששששששששששששששששששששששששששששששששששששששששששששששששששששששששששששששששששששששששששששששששששששששששששששששששו\n");
+	system("pause"); 
+	
 	
 	while(1){
 		if(b==3){
@@ -32,6 +41,8 @@ int main(void){
 		else
 			b++;
 	}
+	
+	
 	system("CLS");
 	while(1){
 		if(a==2025){
@@ -43,7 +54,7 @@ int main(void){
 		}
 	fflush(stdin);
 	scanf("%c",&e);
-		if(e=='a'&&e=='A'){
+		if(e=='a'||e=='A'){
 		
 			system("CLS");
 		//½T©w¿י¤J¬OA~N 
@@ -70,7 +81,7 @@ int main(void){
 		continue;
 	}
 	//	
-	if(e=='b'||e=='B'){
+	else if(e=='b'||e=='B'){
 	do{
 			printf("¿י¤J¤@­Ó1¨ל9×÷¾ד¼Æ:");
 			fflush(stdin);
@@ -91,7 +102,33 @@ int main(void){
 		continue;
 	}
 	
+	else if(e=='c'||e=='C'){
+	printf("\'Continue?(y/n)\'\n");
+	printf("¦p×G­n­«·s¿י¤J¡A½Ð¥´Y¡A­Y¿י¤JN«h¦^¨ל§@·~¨t²Î");
 	
+	do{
+	fflush(stdin);
+	scanf("%c",&l);
+	if(l=='Y'||l=='y'){
+		system("cls");
+		break;
+	}
+		
+	else if(l=='N'||l=='n'){
+		system("cls");
+		printf("µ{¦¡µ²§פ");
+		return 0;
+	}
+	else{
+		printf("¿ש»~¿י¤J½Ð­«·s¿י¤J:"); 
+	}
+		
+	}while(1);
+	}
+	else{
+		system("cls");
+		printf("¿ש»~¿י¤J½Ð­«·s¿י¤J\n");
+		}
 	}
 	
 	

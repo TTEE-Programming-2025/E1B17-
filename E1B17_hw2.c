@@ -94,15 +94,19 @@ int main(void){
 			fflush(stdin);
 			scanf("%d",&g) ;	
 	//輸入錯誤，顯示錯誤並發出聲音體醒使用者 
-	if(g<1||g>9){
+	if(g<1||g>10){
 		printf("錯誤輸入請重新");
 		printf("\a");
 		}
-	}while(g<=1||g>=9);
+	}while(g<=1||g>=10);
 	//印出N階乘法表 
 	for(h=1;h<=g;h++){
 		for(k=1;k<=g;k++){
 		printf(" %d*%d=%d",h,k,h*k);
+	//對齊 
+		if(h*k<10){
+			printf(" ");
+		}
 		}
 		printf("\n");	
 	}

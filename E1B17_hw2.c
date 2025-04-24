@@ -98,7 +98,7 @@ int main(void){
 		printf("錯誤輸入請重新");
 		printf("\a");
 		}
-	}while(g<=1||g>=10);
+	}while(g<=1||g>10);
 	//印出N階乘法表 
 	for(h=1;h<=g;h++){
 		for(k=1;k<=g;k++){

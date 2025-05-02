@@ -1,9 +1,22 @@
 #include<stdio.h>
 #include<stdlib.h>
+void one (int x);
+int  two (int x);
+
 int main(void){
-	//«ֵ§iֵÜ¼ֶ 
-	int i,j,a,b=0,g,h,k;
-	char c,e,space,ch,d,l;
+	
+	//ֵד¥Ü­׃₪H­·®זµe­± 
+	one(1);
+		//¿י₪J±K½X¡A¦p×G¿ש»~₪T¦¸«hµ²§פµ{¦¡ 
+	if (!two(1)) {
+		return 0;
+	}
+	
+	system("CLS");
+	//²M°£×©­±
+	//¦p×G±K½X¥¿½T¡Aֵד¥Ü¿ן³ז 
+}
+void one (int x){
 	//¨ד¦³¦U₪H­·®ז×÷µe­± 
 	printf("שÝשששששששששששששששששששששששששששששששששששששששששששששששששששששששששששששששששששששששששששששששששששששששששששששששששששששששששß\n");
 	printf("שר                                                    שר\n");
@@ -27,7 +40,9 @@ int main(void){
 	printf("שר                                                    שר\n");
 	printf("שדשששששששששששששששששששששששששששששששששששששששששששששששששששששששששששששששששששששששששששששששששששששששששששששששששששששששששו\n");
 	system("pause");
-		//¿י₪J±K½X¡A¦p×G¿ש»~₪T¦¸«hµ²§פµ{¦¡ 
+}
+int two (int x){
+	int a,b=0;
 	while(1){
 		if(b==3){
 			printf("\a");
@@ -38,12 +53,10 @@ int main(void){
 		scanf("%d",&a);
 		if(a==2025)
 			
-			break;
+			return 1;
 		else
 			b++;
 	}
 	
-	system("CLS");
-	//²M°£×©­±
-	//¦p×G±K½X¥¿½T¡Aֵד¥Ü¿ן³ז 
+	
 }

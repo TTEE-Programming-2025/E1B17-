@@ -1,20 +1,40 @@
 #include<stdio.h>
 #include<stdlib.h>
+#include<conio.h>
+#include<string.h> 
 void one (int x);
 int  two (int x);
+void three(int x);
+void four (int x);
+void five (int x);
+# define SIZE 10
+char seat[SIZE][SIZE];
 
 int main(void){
-	
+	char a;
 	//顯示個人風格畫面 
 	one(1);
 		//輸入密碼，如果錯誤三次則結束程式 
 	if (!two(1)) {
 		return 0;
 	}
-	
 	system("CLS");
 	//清除版面
 	//如果密碼正確，顯示選單 
+	four(1);
+	while(1){
+		three(1);
+		scanf("%c",&a);
+		if(a=='a'){
+			five(1);
+			system("pause");
+			system("CLS");
+			fflush(stdin);
+			continue;
+		}
+		
+		
+			}
 }
 void one (int x){
 	//具有各人風格的畫面 
@@ -40,23 +60,74 @@ void one (int x){
 	printf("║                                                    ║\n");
 	printf("╚════════════════════════════════════════════════════╝\n");
 	system("pause");
+	system("cls");
 }
 int two (int x){
-	int a,b=0;
+	int i,a,b=0,B=0,ok;
+	char P[]="123123";
+	char pass[6];
+
 	while(1){
-		if(b==3){
-			printf("\a");
-			printf("密碼錯誤三次");
-			return 0;
-		}
-		printf("請輸入密碼:");
-		scanf("%d",&a);
-		if(a==2025)
-			
-			return 1;
-		else
-			b++;
+	printf("請輸入密碼(6位):");
+	for(i=0;i<6;i++){
+		fflush(stdin);
+		pass[i]=getch();
+		if(pass[i]=='\r') break;
+		printf("*");
+	}
+	pass[i]='\0';
+	ok=strcmp(pass,P);
+	if(ok==0) {
+			printf("\nwelcome\n");
+		break;
 	}
 	
+	else {
+		printf("密碼不正確\n");
+		B++;
+		}
+	if(B==3)
+		return 0;
 	
+	}
+	return 1;
+	}
+void three (int x){
+	printf("----------[Booking System]----------\n"
+"| a. Available seats |\n"
+"| b. Arrange for you |\n"
+"| c. Choose by yourself |\n"
+"| d. Exit |\n"
+"------------------------------------\n");
+}
+void four (int x){
+	int count = 0, row, col;
+	srand(time(NULL));
+	int i,j;
+	for (i = 0; i <SIZE; i++)
+        for (j = 0; j < SIZE; j++){
+        	 seat[i][j] = '-';
+		}
+           
+    
+	while (count < 10) {
+        row = rand() % SIZE;
+        col = rand() % SIZE;
+        if (seat[row][col] != '*') { // 避免重複位置
+            seat[row][col] = '*';
+            count++;
+        }
+    }       
+            
+}
+void five(int x){
+	 int i,j;
+	 printf("\\123456789\n"); // 顯示欄號
+    for ( i = 1; i < SIZE; i++) {
+        printf("%d", SIZE - i); // 反向列號（9到1）
+        for ( j = 1; j < SIZE; j++) {
+            printf("%c", seat[i][j]);
+        }
+        printf("\n");
+    }
 }

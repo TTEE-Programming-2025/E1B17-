@@ -7,6 +7,7 @@ int  two (int x);
 void three(int x);
 void four (int x);
 void five (int x);
+void six (int x);
 # define SIZE 10
 char seat[SIZE][SIZE];
 
@@ -32,6 +33,7 @@ int main(void){
 			fflush(stdin);
 			continue;
 		}
+
 		
 		
 			}
@@ -131,3 +133,4 @@ void five(int x){
         printf("\n");
     }
 }
+

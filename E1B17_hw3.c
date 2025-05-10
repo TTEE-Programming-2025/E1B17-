@@ -32,6 +32,7 @@ int main(void){
 			system("CLS");
 			fflush(stdin);
 			continue;
+		if(a=='b');
 		}
 
 		

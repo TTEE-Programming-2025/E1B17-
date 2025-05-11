@@ -8,13 +8,16 @@ void three(int x);
 void four (int x);
 void five (int x);
 void six (int x);
+void seven(int x);
+int ten(int x);
 # define SIZE 10
 #include<time.h>
 char seat[SIZE][SIZE];
 
 int main(void){
 	char a;
-	int num;
+	
+	int num,result;
 	one(1);
 	if (!two(1)) {
 		return 0;
@@ -36,15 +39,27 @@ int main(void){
 			printf("請輸入訂位人數（1~4）：");
 			fflush(stdin);
 			scanf("%d",&num);
-			if(num>=1&&num<=3)
+			if(num>=1&&num<=3){
 			six(num);
 			system("cls");
 			continue;
-			if(num==4);
-				
-			
-		}
+			}
+			if(num==4){
+				seven(1);
+				system("cls");
+				continue;
+			}
 		
+		}
+		if(a=='d'){
+			result=ten(1);
+			if(result){
+				printf("程式結束");
+				return 0;
+			}
+			system("cls");
+				continue;
+		}
 		
 			}
 }
@@ -192,8 +207,109 @@ void six (int num){
     if(ch=='n'){
 		return ;
 	} 
-	  
-  
-            
 
-} 
+}
+
+
+
+ 
+void seven(int x){
+	int i,j,k,r,c,C,ok,oo,R;
+	int found=0;
+	char temp[SIZE][SIZE];
+	char ch;
+	
+	for (i=0;i<SIZE;i++){
+		for(j=0;j<SIZE;j++)
+		temp[i][j]=seat[i][j];
+	}
+	srand(time(NULL)); 
+	while(found!=1){
+		oo=rand()%2;
+		r=rand()%(SIZE-1)+1;
+		c=rand()%(SIZE-4)+1;
+		C=rand()%(SIZE-2)+1;
+		R=rand()%(SIZE-2)+1;
+	//way1
+	if(oo){
+		ok=1;
+		for(k=0;k<4;k++){
+			if(seat[r][c+k]!='-'){
+				ok=0;
+			}
+		}
+		if(ok){
+			for(k=0;k<4;k++){
+				temp[r][c+k]='@';
+				
+			}
+			found=1;
+				break;
+		}	
+	}
+	//way2
+	else{
+		for(k=0;k<2;k++){
+			if(temp[R][C+k]!='-'||temp[R+1][C+k]!='-')
+			ok=0;
+		}
+	}
+	if(ok){
+		for (k = 0; k < 2; k++) {
+                    temp[R][C + k] = '@';
+                    temp[R + 1][C + k] = '@';
+                    found=1;
+                }
+	}
+	
+	}
+
+	printf("建議座位如下：\n");
+    printf("\\123456789\n");
+    for (i = 1; i < SIZE; i++) {
+        printf("%d", SIZE - i);
+        for (j = 1; j < SIZE; j++) {
+            printf("%c", temp[i][j]);
+        }
+        printf("\n");
+    }
+    printf("你是否滿意這次的座位選擇:\n是:y\n不:n\n");
+    fflush(stdin);
+	scanf("%c",&ch);
+    if(ch=='y'){
+     	for (i = 0; i < SIZE; i++){
+		for (j = 0; j < SIZE; j++)
+            seat[i][j]=temp[i][j];
+            
+	}
+	return ;
+}
+}
+
+
+
+int ten (int x){
+	char l;
+	printf("\'Continue?(y/n)\'\n");
+ 
+	do{
+	fflush(stdin);
+	scanf("%c",&l);
+
+	if(l=='Y'||l=='y'){
+		return 0;
+	}
+	
+	else if(l=='N'||l=='n'){
+		return 1;
+	}
+
+	else{
+		printf("錯誤輸入請重新輸入:"); 
+	}
+
+	}while(1);
+}
+
+
+

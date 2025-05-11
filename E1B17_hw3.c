@@ -9,21 +9,20 @@ void four (int x);
 void five (int x);
 void six (int x);
 # define SIZE 10
+#include<time.h>
 char seat[SIZE][SIZE];
 
 int main(void){
 	char a;
-	//顯示個人風格畫面 
+	int num;
 	one(1);
-		//輸入密碼，如果錯誤三次則結束程式 
 	if (!two(1)) {
 		return 0;
 	}
 	system("CLS");
-	//清除版面
-	//如果密碼正確，顯示選單 
 	four(1);
 	while(1){
+		fflush(stdin);
 		three(1);
 		scanf("%c",&a);
 		if(a=='a'){
@@ -32,9 +31,19 @@ int main(void){
 			system("CLS");
 			fflush(stdin);
 			continue;
-		if(a=='b');
 		}
-
+		if(a=='b'){
+			printf("請輸入訂位人數（1~4）：");
+			fflush(stdin);
+			scanf("%d",&num);
+			if(num>=1&&num<=3)
+			six(num);
+			system("cls");
+			continue;
+			if(num==4);
+				
+			
+		}
 		
 		
 			}
@@ -67,12 +76,12 @@ void one (int x){
 }
 int two (int x){
 	int i,a,b=0,B=0,ok;
-	char P[]="123123";
-	char pass[6];
+	char P[]="2025";
+	char pass[4];
 
 	while(1){
-	printf("請輸入密碼(6位):");
-	for(i=0;i<6;i++){
+	printf("請輸入密碼(4位):");
+	for(i=0;i<4;i++){
 		fflush(stdin);
 		pass[i]=getch();
 		if(pass[i]=='\r') break;
@@ -114,8 +123,8 @@ void four (int x){
            
     
 	while (count < 10) {
-        row = rand() % SIZE;
-        col = rand() % SIZE;
+        row = rand() % (SIZE-1)+1;
+        col = rand() % (SIZE-1)+1;
         if (seat[row][col] != '*') { // 避免重複位置
             seat[row][col] = '*';
             count++;
@@ -134,4 +143,57 @@ void five(int x){
         printf("\n");
     }
 }
+void six (int num){
+	
+	int i,j,k,r,c,ok,found=0;
+	char temp[SIZE][SIZE];
+	char ch;
+	for (i = 0; i < SIZE; i++){
+		for (j = 0; j < SIZE; j++)
+            temp[i][j] = seat[i][j];
+	}
+        
+    for(;;){
+    	r = rand() % (SIZE - 1) + 1;
+    	c = rand() % (SIZE - num) + 1;
+		ok=1;
+		for(k=0;k<num;k++){
+			if(seat[r][c+k]!='-'){
+				ok=0;
+			}
+		}
+		if(ok){
+			for (k = 0; k < num; k++)
+                temp[r][c + k] = '@'; 
+            found = 1;
+            break;
+		}
+	}
+	printf("建議座位如下：\n");
+    printf("\\123456789\n");
+    for (i = 1; i < SIZE; i++) {
+        printf("%d", SIZE - i);
+        for (j = 1; j < SIZE; j++) {
+            printf("%c", temp[i][j]);
+        }
+        printf("\n");
+    }
+    printf("你是否滿意這次的座位選擇:\n是:y\n不:n\n");
+    fflush(stdin);
+	scanf("%c",&ch);
+    if(ch=='y'){
+     	for (i = 0; i < SIZE; i++){
+		for (j = 0; j < SIZE; j++)
+            seat[i][j]=temp[i][j];
+            
+	}
+	return ;
+	}
+    if(ch=='n'){
+		return ;
+	} 
+	  
+  
+            
 
+} 

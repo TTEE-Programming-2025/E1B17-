@@ -9,6 +9,7 @@ void four (int x);
 void five (int x);
 void six (int x);
 void seven(int x);
+void eight(int x);
 int ten(int x);
 # define SIZE 10
 #include<time.h>
@@ -50,6 +51,9 @@ int main(void){
 				continue;
 			}
 		
+		}
+		if(a=='c'){
+			eight(1);
 		}
 		if(a=='d'){
 			result=ten(1);
@@ -285,6 +289,56 @@ void seven(int x){
 	return ;
 }
 }
+
+void eight(int x){
+    char input[300]; 
+    int i,row, col;
+    char *token;
+    int selected[100][2]; // 儲存這次選擇的座位
+    int count = 0;
+
+    printf("請輸入座位（例如 1-2,3-4,5-6）：");
+    fflush(stdin);
+	fgets(input, sizeof(input), stdin);  
+    token = strtok(input, ",");
+
+    while (token != NULL) {
+        if (sscanf(token, "%d-%d", &row, &col) == 2) {
+            if (row >= 1 && row <= 9 && col >= 1 && col <= 9) {
+                if (seat[10-row][col] == '*' || seat[10-row][col] == '@') {
+                    printf("座位 %d-%d 已經被選擇過，請重新選擇。\n", 10-row, col);
+                } else {
+                    seat[10-row][col] = '@';
+                    selected[count][0] = 10-row;
+                    selected[count][1] = col;
+                    count++;
+                }
+            } else {
+                printf("座位 %d-%d 無效，請選擇 1 到 9 之間的座位。\n", 10-row, col);
+            }
+        } else {
+            printf("格式錯誤：請輸入正確的座位格式，例如 1-2\n");
+        }
+        token = strtok(NULL, ",");
+    }
+
+    // 顯示目前結果
+    printf("目前座位如下：\n");
+    five(1);
+
+    printf("按下任意鍵確認無誤並返回主選單...\n");
+    getch();
+    system("cls");
+
+    // 只將這次選的 @ 轉成 *
+    for ( i = 0; i < count; i++) {
+        int r = selected[i][0];
+        int c = selected[i][1];
+        seat[r][c] = '*';
+    }
+}
+
+
 
 
 

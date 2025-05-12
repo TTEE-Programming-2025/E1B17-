@@ -393,6 +393,12 @@ int ten (int x){
 
 	}while(1);
 }
-
+//This assignment is like arranging seats before a stage play.Before choosing seats, 10 spots have already been taken. 
+//Then, users can either input the number of people to let the computer automatically assign seats, or manually enter multiple seat selections themselves.
+//In this program, I tried many techniques I hadn¡¦t used before, such as using multiple functions to keep the main program clean and easier to read. 
+//However, I feel that I didn¡¦t plan each function¡¦s responsibilities very well¡Xfor example, it ended up being one function per major section. 
+//In the future, I¡¦d like to refactor it so that each small part is handled by its own function, making the structure clearer.
+//While completing this program, I also learned many new programming techniques. 
+//For example, I used randomly generated numbers with the modulo operation to make the pre-selected seats appear randomly.
 
 

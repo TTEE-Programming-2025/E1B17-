@@ -2,6 +2,14 @@
 #include<stdlib.h>
 #include<conio.h>
 #include<string.h>
+struct student{
+	char name[9];
+	char number[6];
+	int math;
+	int physics;
+	int english;
+};
+struct student good[10];
 void Personal (int x) {
 //A personalized screen with unique styles
 	printf("שÝשששששששששששששששששששששששששששששששששששששששששששששששששששששששששששששששששששששששששששששששששששששששששששששששששששששששששß\n");
@@ -67,15 +75,31 @@ void menu(int x){
     printf("| e. Exit system                     |\n");
     printf("--------------------------------------\n");
 }
+void enter(int x){
+
+	int i;
+	for (i=0;i<1;i++){
+		printf("½׀¿י₪J²ִ%d­׃¾ַ¥ֽ¸ך®ֶ:\n",i+1);
+		printf("©m¦W:");
+		fflush(stdin);
+		scanf("%s",good[i].name);
+		printf("¾ַ¸¹:");
+		fflush(stdin);
+		scanf("%s",good[i].number); 
+		
+	}
+	
+}
 
 int main(void){
-	int password;
+	int password,n;
+	char num;
 	Personal(1);
 	system("pause");
 	system("cls");
 	
 	password=Password(1);
-	if(password=0){
+	if(password==0){
 		return 0;
 	}
 	system("pause");
@@ -83,5 +107,15 @@ int main(void){
 	
 	menu(1);
 	
+	scanf("%c",&num);
+	if(num=='a'){
+		do{
+			printf("½׀¿י₪J5~10×÷¾ד¼ֶ");
+			scanf("%d",&n);
+		}while(n<5||n>10);
+		fflush(stdin);
+		enter(n);
+	}
+	printf("%s %s",good[0].name,good[0].number);
 }
 

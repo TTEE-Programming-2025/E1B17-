@@ -14,7 +14,7 @@ void Personal (int x) {
 	printf("שר                                                    שר\n");
 	printf("שר                                                    שר\n");
 	printf("שר       Welcome to E1B17 Programming Design          שר\n");
-	printf("שר                      -Programming assignment3      שר\n");
+	printf("שר                      -Programming assignment4      שר\n");
 	printf("שר                                                    שר\n");
 	printf("שר^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^שר\n");
 	printf("שר<             Author: Chiu Guan-Kai                >שר\n");
@@ -58,7 +58,7 @@ int Password (int x){
 	return 1;
 }
 
-voud menu(int x){
+void menu(int x){
 	printf("------------[Grade System]------------\n");
     printf("| a. Enter student grades            |\n");
     printf("| b. Display student grades          |\n");
@@ -81,7 +81,7 @@ int main(void){
 	system("pause");
 	system("cls");
 	
-	menu(1)
+	menu(1);
 	
 }
 

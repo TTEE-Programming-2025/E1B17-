@@ -9,7 +9,7 @@ struct student{
 	int physics;
 	int english;
 };
-struct student good[10];
+struct student student[10];
 void Personal (int x) {
 //A personalized screen with unique styles
 	printf("שÝשששששששששששששששששששששששששששששששששששששששששששששששששששששששששששששששששששששששששששששששששששששששששששששששששששששששששß\n");
@@ -78,17 +78,50 @@ void menu(int x){
 void enter(int x){
 
 	int i;
-	for (i=0;i<1;i++){
+	for (i=0;i<x;i++){
 		printf("½׀¿י₪J²ִ%d­׃¾ַ¥ֽ¸ך®ֶ:\n",i+1);
 		printf("©m¦W:");
 		fflush(stdin);
-		scanf("%s",good[i].name);
-		printf("¾ַ¸¹:");
-		fflush(stdin);
-		scanf("%s",good[i].number); 
-		
+		scanf("%s",student[i].name);
+		while(1){
+			printf("¾ַ¸¹:");
+			fflush(stdin);
+			scanf("%s",student[i].number);
+			if (strlen(student[i].number) == 6 && isAllDigits(student[i].number)) {
+				break;	
+			}
+			else
+			printf("¿ש»~");
+		}
+		while(1){
+			printf("¼ֶ¾ַ¦¨ֱZ:");
+			scanf("%d",&student[i].math);
+			if(student[i].math>=0&&student[i].math<=100)
+				break;
+		}
+		while(1){
+		printf("×«²z¦¨ֱZ:");
+			scanf("%d",&student[i].physics);
+		if(student[i].physics>=0&&student[i].physics<=100)
+				break;
+		}	
+			
+		while(1){	
+		printf("­^₪ו¦¨ֱZ:");
+			scanf("%d",&student[i].english);
+		if(student[i].english>=0&&student[i].english<=100)
+				break;
+		}	
 	}
 	
+}
+int isAllDigits(char str[]) {
+    int i;
+	for (i = 0; str[i]; i++) {
+        if (!isdigit(str[i]))
+		return 0;
+    }
+    return 1;
 }
 
 int main(void){
@@ -116,6 +149,6 @@ int main(void){
 		fflush(stdin);
 		enter(n);
 	}
-	printf("%s %s",good[0].name,good[0].number);
+	printf("%s %s %d %d %d",student[0].name,student[0].number,student[0].math,student[0].physics,student[0].english);
 }
 

@@ -2,6 +2,7 @@
 #include<stdlib.h>
 #include<conio.h>
 #include<string.h>
+int n;
 struct student{
 	char name[9];
 	char number[6];
@@ -82,7 +83,7 @@ void enter(int x){
 		printf("請輸入第%d個學生資料:\n",i+1);
 		printf("姓名:");
 		fflush(stdin);
-		scanf("%s",student[i].name);
+		scanf("%8s",student[i].name);
 		while(1){
 			printf("學號:");
 			fflush(stdin);
@@ -123,9 +124,17 @@ int isAllDigits(char str[]) {
     }
     return 1;
 }
-
+void output(int x){
+	int i;
+	printf("學號    姓名     Math  English Physics avg\n");
+	for(i=0;i<n;i++){
+		
+			printf("%6s  %-9s%-3d   %-3d     %-3d     %-3.1f\n",student[i].number,student[i].name,student[i].math,student[i].physics,student[i].english,((float)(student[i].math+student[i].physics+student[i].english))/3);
+		
+	}
+}
 int main(void){
-	int password,n;
+	int password;
 	char num;
 	Personal(1);
 	system("pause");
@@ -137,9 +146,10 @@ int main(void){
 	}
 	system("pause");
 	system("cls");
-	
+	while(1){
+	//
+	system("cls");
 	menu(1);
-	
 	scanf("%c",&num);
 	if(num=='a'){
 		do{
@@ -148,7 +158,15 @@ int main(void){
 		}while(n<5||n>10);
 		fflush(stdin);
 		enter(n);
+		
+		continue;
 	}
-	printf("%s %s %d %d %d",student[0].name,student[0].number,student[0].math,student[0].physics,student[0].english);
+	if(num=='b'){
+		output(1);
+		getch();
+		continue;
+	}
+	
+}
 }
 

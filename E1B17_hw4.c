@@ -133,6 +133,25 @@ void output(int x){
 		
 	}
 }
+void search(int x){
+	char nname[9];
+	int i,b=0;
+	printf("請輸入學生姓名:");
+	scanf("%s",nname);
+	
+	for(i=0;i<n;i++){
+		if(strcmp(student[i].name,nname)==0){
+			printf("學號    姓名     Math  English Physics avg\n");
+			printf("%6s  %-9s%-3d   %-3d     %-3d     %-3.1f\n",student[i].number,student[i].name,student[i].math,student[i].physics,student[i].english,((float)(student[i].math+student[i].physics+student[i].english))/3);
+		b=1;
+		}
+		
+		}
+	
+	if(!b){
+		printf("資料不存在");
+	}
+}
 int main(void){
 	int password;
 	char num;
@@ -152,21 +171,27 @@ int main(void){
 	menu(1);
 	scanf("%c",&num);
 	if(num=='a'){
+		system("cls");
 		do{
-			printf("請輸入5~10的整數");
+			printf("請輸入5~10的整數:");
+			fflush(stdin);
 			scanf("%d",&n);
-		}while(n<5||n>10);
-		fflush(stdin);
+		}while(n<1||n>10);
 		enter(n);
-		
 		continue;
 	}
 	if(num=='b'){
+		system("cls");
 		output(1);
 		getch();
 		continue;
 	}
-	
+	if(num=='c'){
+		system("cls");
+		search(1);
+		getch();
+		continue;
+	}
 }
 }
 

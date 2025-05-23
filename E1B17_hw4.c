@@ -176,8 +176,26 @@ void rank(int x){
 	}
 }
 }
+int end(int x){
+	char l;
+	printf("\'Continue?(y/n)\'\n");
+	do{
+	fflush(stdin);
+	scanf("%c",&l);
+	if(l=='Y'||l=='y'){
+		return 1;
+	}
+	else if(l=='N'||l=='n'){
+		return 0;
+	}
+	else{
+		printf("Invalid input, please try again:"); 
+	}
+	}while(1);
+}
+
 int main(void){
-	int password;
+	int password,e;
 	char num;
 	Personal(1);
 	system("pause");
@@ -218,8 +236,15 @@ int main(void){
 	}
 	if(num=='d'){
 		rank(1);
+		getch();
+		continue;
 	}
-
+	if(num=='e') {
+	e=end(1);
+	if(e){
+		return 0;
+	}
+	}
 }}
 
 

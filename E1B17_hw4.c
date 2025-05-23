@@ -9,6 +9,7 @@ struct student{
 	int math;
 	int physics;
 	int english;
+	float avg;
 };
 struct student student[10];
 void Personal (int x) {
@@ -112,7 +113,8 @@ void enter(int x){
 			scanf("%d",&student[i].english);
 		if(student[i].english>=0&&student[i].english<=100)
 				break;
-		}	
+		}
+		student[i].avg=	((float)(student[i].math+student[i].physics+student[i].english))/3;
 	}
 	
 }
@@ -129,7 +131,7 @@ void output(int x){
 	printf("學號    姓名     Math  English Physics avg\n");
 	for(i=0;i<n;i++){
 		
-			printf("%6s  %-9s%-3d   %-3d     %-3d     %-3.1f\n",student[i].number,student[i].name,student[i].math,student[i].physics,student[i].english,((float)(student[i].math+student[i].physics+student[i].english))/3);
+			printf("%6s  %-9s%-3d   %-3d     %-3d     %-3.1f\n",student[i].number,student[i].name,student[i].math,student[i].physics,student[i].english,student[i].avg);
 		
 	}
 }
@@ -142,7 +144,7 @@ void search(int x){
 	for(i=0;i<n;i++){
 		if(strcmp(student[i].name,nname)==0){
 			printf("學號    姓名     Math  English Physics avg\n");
-			printf("%6s  %-9s%-3d   %-3d     %-3d     %-3.1f\n",student[i].number,student[i].name,student[i].math,student[i].physics,student[i].english,((float)(student[i].math+student[i].physics+student[i].english))/3);
+			printf("%6s  %-9s%-3d   %-3d     %-3d     %-3.1f\n",student[i].number,student[i].name,student[i].math,student[i].physics,student[i].english,student[i].avg);
 		b=1;
 		}
 		
@@ -151,6 +153,28 @@ void search(int x){
 	if(!b){
 		printf("資料不存在");
 	}
+}
+void rank(int x){
+	int max=student[0].english+student[0].math +student[0].physics;
+	int min=student[0].english+student[0].math +student[0].physics;
+	int i,j;
+	
+	for(i=0;i<n;i++){
+		if(max<student[i].english+student[i].math +student[i].physics){
+			max=student[i].english+student[i].math +student[i].physics;
+		}
+		if(min>student[i].english+student[i].math +student[i].physics){
+			min=student[i].english+student[i].math +student[i].physics;
+	}
+	printf("學號    姓名     Math  English Physics avg\n");
+	
+	for(j=max;j<=min;j--){
+		for(i=0;i<n;i++){
+		if(j==student[i].english+student[i].math +student[i].physics)
+		printf("%6s  %-9s%-3d   %-3d     %-3d     %-3.1f\n",student[i].number,student[i].name,student[i].math,student[i].physics,student[i].english,student[i].avg);
+	}
+	}
+}
 }
 int main(void){
 	int password;
@@ -192,6 +216,10 @@ int main(void){
 		getch();
 		continue;
 	}
-}
-}
+	if(num=='d'){
+		rank(1);
+	}
+
+}}
+
 

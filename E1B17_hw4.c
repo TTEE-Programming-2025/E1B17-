@@ -3,6 +3,7 @@
 #include<conio.h>
 #include<string.h>
 int n;
+//Declare a structure
 struct student{
 	char name[9];
 	char number[6];
@@ -36,7 +37,7 @@ void Personal (int x) {
 	printf("שר                                                    שר\n");
 	printf("שדשששששששששששששששששששששששששששששששששששששששששששששששששששששששששששששששששששששששששששששששששששששששששששששששששששששששששו\n");
 }
-
+//password
 int Password (int x){
 	int i,a,b=0,B=0,ok;
 	char P[]="2025";
@@ -159,6 +160,7 @@ void search(int x){
 		printf("Not found");
 	}
 }
+//Sort from largest to smallest
 void rank(int x){
 	int max=student[0].english+student[0].math +student[0].physics;
 	int min=student[0].english+student[0].math +student[0].physics;
@@ -181,6 +183,7 @@ void rank(int x){
 	}
 }
 }
+//Ask whether to exit the program
 int end(int x){
 	char l;
 	printf("\'Continue?(y/n)\'\n");
@@ -198,7 +201,7 @@ int end(int x){
 	}
 	}while(1);
 }
-
+//Main program
 int main(void){
 	int password,e;
 	char num;
@@ -213,7 +216,6 @@ int main(void){
 	system("pause");
 	system("cls");
 	while(1){
-	//
 	system("cls");
 	menu(1);
 	scanf("%c",&num);
@@ -251,5 +253,7 @@ int main(void){
 	}
 	}
 }}
-
-
+//In this program for a simple grade input system using structures, 
+//I used functions better than in the last assignment and organized the overall structure more clearly
+//I also gave the functions more meaningful names, making debugging and reading easier.
+//At the same time, I also learned how to use structures together with arrays to complete the program¡¦s input and output.

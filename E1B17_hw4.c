@@ -67,7 +67,7 @@ int Password (int x){
 	}
 	return 1;
 }
-
+//menu
 void menu(int x){
 	printf("------------[Grade System]------------\n");
     printf("| a. Enter student grades            |\n");
@@ -77,39 +77,41 @@ void menu(int x){
     printf("| e. Exit system                     |\n");
     printf("--------------------------------------\n");
 }
+//enter students information
 void enter(int x){
 
 	int i;
 	for (i=0;i<x;i++){
-		printf("請輸入第%d個學生資料:\n",i+1);
+		system("cls");
+		printf("Enter data for the %dth student:\n",i+1);
 		printf("姓名:");
 		fflush(stdin);
 		scanf("%8s",student[i].name);
 		while(1){
-			printf("學號:");
+			printf("number:");
 			fflush(stdin);
 			scanf("%s",student[i].number);
 			if (strlen(student[i].number) == 6 && isAllDigits(student[i].number)) {
 				break;	
 			}
 			else
-			printf("錯誤");
+			printf("Error\n");
 		}
 		while(1){
-			printf("數學成績:");
+			printf("math grade:");
 			scanf("%d",&student[i].math);
 			if(student[i].math>=0&&student[i].math<=100)
 				break;
 		}
 		while(1){
-		printf("物理成績:");
+		printf("physics grade:");
 			scanf("%d",&student[i].physics);
 		if(student[i].physics>=0&&student[i].physics<=100)
 				break;
 		}	
 			
 		while(1){	
-		printf("英文成績:");
+		printf("english grade:");
 			scanf("%d",&student[i].english);
 		if(student[i].english>=0&&student[i].english<=100)
 				break;
@@ -118,6 +120,7 @@ void enter(int x){
 	}
 	
 }
+//Determine if it is an integer
 int isAllDigits(char str[]) {
     int i;
 	for (i = 0; str[i]; i++) {
@@ -126,24 +129,26 @@ int isAllDigits(char str[]) {
     }
     return 1;
 }
+//output
 void output(int x){
 	int i;
-	printf("學號    姓名     Math  English Physics avg\n");
+	printf("nunber    name     Math  English Physics avg\n");
 	for(i=0;i<n;i++){
 		
 			printf("%6s  %-9s%-3d   %-3d     %-3d     %-3.1f\n",student[i].number,student[i].name,student[i].math,student[i].physics,student[i].english,student[i].avg);
 		
 	}
 }
+//search a student 
 void search(int x){
 	char nname[9];
 	int i,b=0;
-	printf("請輸入學生姓名:");
+	printf("Please enter student's name:");
 	scanf("%s",nname);
 	
 	for(i=0;i<n;i++){
 		if(strcmp(student[i].name,nname)==0){
-			printf("學號    姓名     Math  English Physics avg\n");
+			printf("nunber    name     Math  English Physics avg\n");
 			printf("%6s  %-9s%-3d   %-3d     %-3d     %-3.1f\n",student[i].number,student[i].name,student[i].math,student[i].physics,student[i].english,student[i].avg);
 		b=1;
 		}
@@ -151,7 +156,7 @@ void search(int x){
 		}
 	
 	if(!b){
-		printf("資料不存在");
+		printf("Not found");
 	}
 }
 void rank(int x){
@@ -166,7 +171,7 @@ void rank(int x){
 		if(min>student[i].english+student[i].math +student[i].physics){
 			min=student[i].english+student[i].math +student[i].physics;
 	}
-	printf("學號    姓名     Math  English Physics avg\n");
+	printf("nunber    name     Math  English Physics avg\n");
 	
 	for(j=max;j<=min;j--){
 		for(i=0;i<n;i++){
@@ -215,10 +220,10 @@ int main(void){
 	if(num=='a'){
 		system("cls");
 		do{
-			printf("請輸入5~10的整數:");
+			printf("Please enter an integer between 5 and 10:");
 			fflush(stdin);
 			scanf("%d",&n);
-		}while(n<1||n>10);
+		}while(n<5||n>10);
 		enter(n);
 		continue;
 	}
